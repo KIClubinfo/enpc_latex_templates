@@ -1,0 +1,17 @@
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.bbl
+*.bcf
+*.blg
+*.run.xml
+*.synctex(busy)
+*/svg-inkscape/
+*.tns
+*.snm
+*.nav
+*.vrb

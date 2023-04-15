@@ -1,0 +1,126 @@
+\documentclass[11pt]{article}
+
+\usepackage[french]{babel} % Langue du document
+\usepackage[utf8]{inputenc} % Encodage du document
+\usepackage[T1]{fontenc} % Encodage des caractères
+\usepackage[margin=1.75cm,headheight=1cm,headsep=2.5mm]{geometry} % Marges du document
+\usepackage{svg} % Inclusion de fichiers SVG (logo des Ponts)
+\usepackage{hyperref} % Hyperliens
+\usepackage{xcolor} % Couleurs
+\usepackage{titlesec} % Définition des titres
+\usepackage[sorting=none]{biblatex} % Bibliographie
+\usepackage{csquotes} % Citation de textes
+\usepackage{fancyhdr}
+
+% Paramètes du rapport (A MODIFIER)
+    \def\auteur{\textsc{Nom} Prénom}
+    \def\email{prenom.nom@eleves.enpc.fr} % Adresse mail
+
+    \def\encadrant{Nom de l'encadrant} % Nom de l'encadrant
+    \def\emailEncadrant{email@encadrant.fr}
+
+    \def\titre{Matière} % Titre du rapport ou matière
+    \def\sousTitre{Titre du rapport} % Sous-titre du rapport
+
+    \def\typeRapport{Type de rapport} % Type de rapport (Mémoire, rapport de stage, rapport de projet, etc.)
+
+    \def\dateRapport{10 avril 2023} % Date du rapport
+
+    % Définition de la bibliographie
+    \addbibresource{assets/biblio.bib}
+% Fin des paramètres du rapport
+
+% Définition du bleu du logo des Ponts
+\definecolor{bleuPonts}{HTML}{00aec7}
+
+% Hyperref : définition des couleurs des liens et des citations
+\hypersetup{
+    citecolor=bleuPonts, % Couleur des citations
+    colorlinks=true, % Activer les liens colorés
+    linkcolor=black, % Couleur des liens
+    urlcolor=bleuPonts, % Couleur des liens vers des URL
+    pdfpagemode=FullScreen, % Mode plein écran par défaut
+}
+
+% Définition des titres
+\titleformat{\part}[block]
+{\normalfont}
+{\Large\textsc\partname}{.5em}{\titlerule\\\Huge\bfseries\textsc}
+
+\titleformat{\section}[frame]
+{\normalfont}
+{\filright
+\footnotesize
+\enspace \textsc{Séction} \thesection\enspace}
+{8pt}
+{\Large\filcenter\bfseries\textsc}
+
+\titleformat{\subsection}[block]
+{\normalfont}
+{\thesubsection}{.5em}{\titlerule\\\Large}
+
+\titleformat{\subsubsection}[block]
+{\normalfont\itshape}
+{\thesubsubsection.}{.5em}{\titlerule\\}
+
+% Définition de la page de garde
+\date{\dateRapport}
+\author{{\auteur} \\ \href{mailto:\email}{\email}
+        \\[.3cm] Encadré par : \encadrant \\
+        \href{mailto:\emailEncadrant}{\emailEncadrant}
+}
+\title{
+    \vspace*{2cm}
+    \href{https://ecoledesponts.fr/}{\includesvg[width=.2\linewidth]{assets/enpc.svg}} \\
+    \rule{\linewidth}{0.4pt} \\[0.3cm]
+    \textbf{\textsc{\titre}} \\
+    \sousTitre \\[0.1cm]
+    \rule{\linewidth}{0.4pt}
+}
+
+% Définition du style de page
+\setcounter{page}{1}
+\pagestyle{fancy}
+\fancyhead{}
+\lhead{{ENPC} \\ {\typeRapport}}
+\chead{\textsc{\textbf{\titre \ :} \sousTitre}}
+\rhead{\dateRapport \\ \auteur}
+\fancyfoot{}
+\rfoot{\textbf{\thepage \ / \pageref*{LastPage}}}
+
+\begin{document}
+    % Page de garde
+    \clearpage
+    \maketitle
+    \thispagestyle{empty}
+
+    % Résumé (A MODIFIER)
+    \begin{abstract}
+        Lorem ipsum dolor sit amet. Et laborum quam est labore officiis eos dolor voluptatum ex explicabo dolore hic modi quos! Et nisi nostrum eos odio ullam sit internos quam hic laboriosam consequuntur quo labore enim qui eaque quasi.
+
+        Ut quia ratione ut dignissimos necessitatibus est sapiente quia id corrupti quos eum exercitationem nobis quo adipisci consequatur ea eius consectetur. Rem galisum repellat ab fuga ipsum aut impedit sequi est ipsum voluptas! Non quos reiciendis eum ratione nulla aut velit optio et nostrum laborum ut perferendis mollitia in iusto odit! Ut placeat blanditiis qui sequi similique sit similique autem eum molestiae maxime hic reiciendis deleniti est sint adipisci aut nobis molestiae.
+
+        Aut voluptatem ipsum aut iste dolorum ea sint laudantium qui explicabo similique non rerum pariatur ab accusantium odio et voluptatem dolores. Eum consectetur consequatur est minus iusto in repellat asperiores! Ab molestias quas sit explicabo minus ex assumenda omnis.
+    \end{abstract}
+    \newpage
+
+    % Table des matières
+    \tableofcontents
+
+    % Début du rapport (A MODIFIER)
+    \section*{Introduction}
+    \newpage
+    \part{Nom de ma partie}
+    \section{Nom de ma section}
+    \subsection{Nom de ma sous-section}
+    \subsubsection{Nom de ma sous-sous-section}
+    Ce document contient également une bibliographie \cite{overleaf_bibliography_management_2023}
+    \date
+
+    % Bibliographie
+    \newpage
+    \printbibliography
+
+    \label{LastPage}
+        
+\end{document}

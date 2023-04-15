@@ -1,0 +1,147 @@
+\documentclass{beamer}
+
+\title{Matière} % Titre du rapport ou matière
+\subtitle{Sous-titre de la présentation} % Sous-titre du rapport
+\author{Prénom Nom (ENPC)}
+\date{11 avril 2023}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{svg}
+\usepackage{tcolorbox}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{appendix}
+\usepackage{appendixnumberbeamer}
+
+\usetheme{CambridgeUS}
+
+% Définition de quelques couleurs (bleu du logo des Ponts)
+\definecolor{bleuPonts}{HTML}{00aec7}
+
+% Définition des couleurs du thème
+\setbeamercolor{section in toc}{fg=black,bg=white}
+\setbeamercolor{alerted text}{fg=red!80!gray}
+\setbeamercolor*{palette primary}{fg=bleuPonts!60!black,bg=gray!30!white}
+\setbeamercolor*{palette secondary}{fg=bleuPonts!70!black,bg=gray!15!white}
+\setbeamercolor*{palette tertiary}{bg=bleuPonts!80!black,fg=gray!10!white}
+\setbeamercolor*{palette quaternary}{fg=bleuPonts,bg=gray!5!white}
+
+\setbeamercolor*{sidebar}{fg=red,bg=gray!15!white}
+%set color structure
+\setbeamercolor*{structure}{fg=bleuPonts!80!black}
+
+\setbeamercolor*{palette sidebar primary}{fg=bleuPonts!10!black}
+\setbeamercolor*{palette sidebar secondary}{fg=gray!10!blak}
+\setbeamercolor*{palette sidebar tertiary}{fg=bleuPonts!50!black}
+\setbeamercolor*{palette sidebar quaternary}{fg=gray!30!blak}
+
+%\setbeamercolor*{titlelike}{parent=palette primary}
+\setbeamercolor{titlelike}{parent=palette primary,fg=bleuPonts}
+\setbeamercolor{frametitle}{bg=gray!10!white}
+\setbeamercolor{frametitle right}{bg=gray!60!white}
+
+\setbeamercolor*{separation line}{}
+\setbeamercolor*{fine separation line}{}
+
+% Définition de la page de garde
+\defbeamertemplate*{title page}{customized}[1][]
+{
+    \centering
+    \includesvg[width=0.2\paperwidth]{assets/enpc.svg}\par
+    \bigskip
+    \usebeamerfont{title}\Huge{\inserttitle}\par
+    \usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\Large{\insertsubtitle}\par
+}
+
+% Définition de la forme des items
+\setbeamertemplate{itemize items}[default]
+\setbeamertemplate{enumerate items}[default]
+\setbeamertemplate{section in toc}[square]
+
+% Enlève la barre de navigation
+\beamertemplatenavigationsymbolsempty
+
+% Couleurs pour les listings (Dracula)
+\definecolor{draculaBackground}{HTML}{282a36}
+\definecolor{draculaCurentLine}{HTML}{44475a}
+\definecolor{draculaSelection}{HTML}{44475a}
+\definecolor{draculaForeground}{HTML}{f8f8f2}
+\definecolor{draculaComment}{HTML}{6272a4}
+\definecolor{draculaCyan}{HTML}{8be9fd}
+\definecolor{draculaGreen}{HTML}{50fa7b}
+\definecolor{draculaOrange}{HTML}{ffb86c}
+\definecolor{draculaPink}{HTML}{ff79c6}
+\definecolor{draculaPurple}{HTML}{bd93f9}
+\definecolor{draculaRed}{HTML}{ff5555}
+\definecolor{draculaYellow}{HTML}{f1fa8c}
+%utilisation pour les listings de ces couleurs
+\lstset{
+    frame=tb,
+    basicstyle=\ttfamily\tiny\color{draculaForeground},
+    backgroundcolor=\color{draculaBackground},
+    commentstyle=\color{draculaComment},
+    keywordstyle=\color{draculaCyan},
+    stringstyle=\color{draculaGreen},
+    identifierstyle=\color{draculaPink},
+    breaklines=true,
+    numbers=left,
+    numberstyle=\color{bleuPonts},
+    extendedchars=true,
+    xleftmargin=5mm,
+    xrightmargin=5mm
+}
+
+\begin{document}
+    \begin{frame}
+        
+        \titlepage
+    \end{frame}
+
+    \begin{frame}
+        \frametitle{Sommaire}
+        \setcounter{tocdepth}{1}
+        \tableofcontents
+    \end{frame}
+    \section{Introduction}
+    \begin{frame}
+        \frametitle{Introduction}
+        \begin{itemize}
+            \item Premier item
+            \item On peut importer des images : \begin{center}{\includegraphics[height=0.5\paperheight]{assets/image1.png}}\end{center}
+        \end{itemize}
+    \end{frame}
+    \section{Première partie}
+    \begin{frame}
+        \frametitle{Première partie}
+        \begin{enumerate}
+            \item Item 1
+            \item Item 2
+            \item Item 3
+        \end{enumerate}
+        \begin{block}{Titre du bloc 2} Ceci est un bloc \texttt{block} \end{block}
+        \begin{exampleblock}{Titre du bloc 2} Ceci est un bloc \texttt{exampleblock} \end{exampleblock}
+        \begin{alertblock}{Tire du bloc 3} Ceci est un bloc \texttt{alertblock} \end{alertblock}
+    \end{frame}
+
+    % Appendix (à mettre en dernier)
+    \appendix
+    \begin{frame}
+        \frametitle{\appendixname}
+        \tableofcontents[currentsection]
+    \end{frame}
+    \section{Appendix 1}
+    \begin{frame}[allowframebreaks=1,fragile,t]
+        Premier exemple de code
+        \begin{lstlisting}[language=Python]
+            def f(x):
+                return x**2
+        \end{lstlisting}
+    \end{frame}
+    \section{Appendix 2}
+    \subsection{Code importé depuis un fichier}
+    \begin{frame}[allowframebreaks=1,fragile,t]
+        \lstinputlisting[language=Python]{assets/main.py}
+    \end{frame}
+\end{document}
